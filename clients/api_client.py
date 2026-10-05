@@ -17,6 +17,17 @@ class APIClient:
         response = requests.post(url, json=data)
         return response
 
+    def put(self, endpoint, data = None):
+        url = self.BASEURL + endpoint
+        response = requests.put(url=url, json = data)
+        return response
+
+    def delete(self, endpoint):
+        url = self.BASEURL + endpoint
+        response = requests.delete(url=url)
+        return response
+
+
 if __name__ == "__main__":
 
     client = APIClient()
