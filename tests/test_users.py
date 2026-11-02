@@ -13,16 +13,3 @@ def test_register_user(api_client, user_credentials):
     assert response.status_code == 201
     assert response.json().get('user').get('email') == user_credentials["email"]
     # logger.debug(response.json().get('user').get('email'))
-
-
-
-
-
-
-
-
-
-
-
-
-
