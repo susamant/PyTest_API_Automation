@@ -1,12 +1,12 @@
 import logging
 import os
+from utils.config_manager import ConfigManager
 
-import config
-
+config = ConfigManager.load_config()
 # Create logs directory if it doesn't exist
-os.makedirs(config.LOG_DIR, exist_ok=True)
+os.makedirs(config["LOG_DIR"], exist_ok=True)
 
-log_file = os.path.join(config.LOG_DIR, config.LOG_FILE_NAME)
+log_file = os.path.join(config["LOG_DIR"], config["LOG_FILE_NAME"])
 
 
 logger = logging.getLogger(__name__)

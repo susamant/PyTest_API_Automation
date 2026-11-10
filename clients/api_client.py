@@ -1,15 +1,16 @@
-import pytest
+
 import requests
-import config
+from utils.config_manager import ConfigManager
 
 
 class APIClient:
     def __init__(self):
-        self.BASEURL = config.BASE_URL
+        config = ConfigManager.load_config()
+        self.BASEURL = config["BASE_URL"]
 
-    def get(self, endpoint, params = None):
+    def get(self, endpoint, headers = None, params = None):
         url = self.BASEURL + endpoint
-        response = requests.get(url, params=params)
+        response = requests.get(url, headers=headers, params=params)
         return response
 
     def post(self, endpoint, data=None):
