@@ -2,13 +2,10 @@ import json
 import os
 
 import pytest
+import requests
 from dotenv import load_dotenv
 from utils.logger import logger
 from clients.api_client import APIClient
-
-@pytest.fixture(scope="session")
-def api_client():
-    return APIClient()
 
 
 """
@@ -69,6 +66,13 @@ def user_credentials():
         logger.error("email or password not provided")
 
     return {"email": email, "password": password}
+
+@pytest.fixture(scope="session")
+def api_client():
+    client = APIClient()
+    return client
+
+
 
 
 
