@@ -15,7 +15,7 @@ class APIClient:
 
     def auth_token(self):
         if self.token is None:
-            endpoint = "/auth/register"
+            endpoint = "/auth/login"
             url = self.BASEURL + endpoint
             data = {
                 "email": os.getenv('user_email'),
