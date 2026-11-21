@@ -43,9 +43,9 @@ class APIClient:
         response = requests.get(url, headers=self._get_headers(headers), params=params)
         return response
 
-    def post(self, endpoint, data=None):
+    def post(self, endpoint, data=None, headers=None):
         url = self.BASEURL + endpoint
-        response = requests.post(url, json=data)
+        response = requests.post(url, json=data, headers=self._get_headers(headers))
         return response
 
     def put(self, endpoint, data = None):
